@@ -1,6 +1,4 @@
 ...
 
 
-update cms_card.customer_account set cbs_account_type = '01';
- 
-update cms_card.card_limit_primary set is_define_aggregate_channel_limit= 0, is_define_separate_channel_limit = 0;
+Insert into CMS_USER_ADMIN.MENU (ACCESS_URL,API_MODULE,DESCRIPTION,DISPLAY_SEQUENCE,IS_LEAF,MENU_CODE,MENU_NAME,MENU_TC,PARENT_MENU_ID,STATUS_TC,PORTAL_ID,PRODUCT_ID,MANDATORY,DELETE_COMMENTS,TENANT_CODE,DML_TYPE,DML_BY,DML_ON,CHECKED_BY,CHECKED_ON) values ('/administration/user-administration/GoExchange-rate-mapper','cms','GoExchange rate mapper',7,'1','M151','GoExchange rate mapper','Sub menu',3,1,1,1,0,null,'FSS','I','System1',to_timestamp('22-02-25 02:13:43.000000000 PM','DD-MM-RR HH12:MI:SSXFF AM'),'System2',to_timestamp('22-02-25 02:13:43.000000000 PM','DD-MM-RR HH12:MI:SSXFF AM'));
