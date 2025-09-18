@@ -1,3 +1,18 @@
 ...
 
 
+blazequay.np.fssblaze.com/quay/nats/nats:0.15.0
+blazequay.np.fssblaze.com/quay/nats/nats-account-server:1.0.0
+blazequay.np.fssblaze.com/quay/nats/nats-kafka:1.4.2
+blazequay.np.fssblaze.com/quay/nats/nats-operator:0.8.3
+blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:0.6.2
+blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.2.2-v1alpha2
+blazequay.np.fssblaze.com/quay/nats/nats:2.10.17-alpine
+blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.14.3
+blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:0.15.0
+blazequay.np.fssblaze.com/quay/nats/nats-box:0.14.3
+blazequay.np.fssblaze.com/quay/nats/nats-streaming:0.23.2
+blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:latest
+blazequay.np.fssblaze.com/quay/nats/nats-boot-config:0.5.4
+blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.6.2
+blazequay.np.fssblaze.com/quay/nats/nats-surveyor:0.5.4
