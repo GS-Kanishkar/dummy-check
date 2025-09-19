@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sftp-server
+  namespace: sftp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sftp-server
+  template:
+    metadata:
+      labels:
+        app: sftp-server
+    spec:
+      serviceAccountName: sftp-sa
+      containers:
+        - name: sftp
+          image: lscr.io/linuxserver/openssh-server:version-10.0_p1-r7
+          env:
+            - name: PUID
+              value: "1001"
+            - name: PGID
+              value: "1001"
+            - name: TZ
+              value: "Asia/Kolkata"
+            - name: USER_NAME
+              value: "sbi"
+            - name: USER_PASSWORD
+              value: "sbi123"
+            - name: PASSWORD_ACCESS
+              value: "true"
+          ports:
+            - containerPort: 22
+              name: ssh
+          volumeMounts:
+            - name: sftp-volume
+              mountPath: /config
+      volumes:
+        - name: sftp-volume
+          persistentVolumeClaim:
+            claimName: sftp-pvc
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sftp-service
+  namespace: sftp
+spec:
+  selector:
+    app: sftp-server
+  ports:
+    - protocol: TCP
+      port: 22     
+      targetPort: 2222 
+  type: ClusterIP
