@@ -1,15 +1,27 @@
-blazequay.np.fssblaze.com/quay/nats/nats:0.15.0
-blazequay.np.fssblaze.com/quay/nats/nats-account-server:1.0.0
-blazequay.np.fssblaze.com/quay/nats/nats-kafka:1.4.2
-blazequay.np.fssblaze.com/quay/nats/nats-operator:0.8.3
-blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:0.6.2
-blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.2.2-v1alpha2
-blazequay.np.fssblaze.com/quay/nats/nats:2.10.17-alpine
-blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.14.3
-blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:0.15.0
-blazequay.np.fssblaze.com/quay/nats/nats-box:0.14.3
-blazequay.np.fssblaze.com/quay/nats/nats-streaming:0.23.2
-blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:latest
-blazequay.np.fssblaze.com/quay/nats/nats-boot-config:0.5.4
-blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.6.2
-blazequay.np.fssblaze.com/quay/nats/nats-surveyor:0.5.4
+SELECT 
+    cu.cbs_customer_id,
+    cu.customer_id,
+    cu.customer_full_name,
+    cu.mobile_number1,
+    cu.email,
+    c.pan_encrypt,
+    c.card_program_code,
+    ca.cbs_account_number
+FROM customer cu
+JOIN card c 
+    ON cu.customer_id = c.customer_id
+LEFT JOIN customer_account ca 
+                     ON c.customer_id = ca.customer_id 
+                    LEFT JOIN card_account cardAccount 
+                   ON ca.customer_account_id = cardAccount.customer_account_id
+                  AND cardAccount.card_id = c.card_id and cardAccount.customer_id = cu.customer_id 
+                  AND cardAccount.status_tc = 1 aND cardAccount.account_sequence_no = 1
+WHERE
+ 
+  (cu.mobile_number1 = '8879699158' OR cu.mobile_number2 = '8879699158')
+ 
+  AND cu.tenant_code = 'SBI'
+ 
+  AND c.card_status IN ('1','0')
+ 
+  AND c.green_pin != 'Y';
