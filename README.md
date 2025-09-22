@@ -1,53 +1,19 @@
-curl --location 'https://devcms.np.fssblaze.com/sbi/javaconnect/connectiondetails/save' \
---header 'Content-Type: application/json' \
---data '{
-    "tenantCode":"SBI",
-    "productCode":"CMS001",
-    "connectionName":"BASE24-CLASSIC-D1",
-    "networkCode":"SWT0005",
-    "host":"10.0.54.36",
-    "port":9002,
-    "connectionMode":"C",
-    "isLoginRequired":"Y",
-    "isAutoLoginRequired":"Y",
-    "isEchoRequired":"N",
-    "echoFreq":0,
-    "echoRetryAttempts":0,
-    "dmlBy":"Abdul"
-}'
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-global-service:sbi-uat.v23
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-support-extn:sbi-uat.v38
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-audit-service:sbi-uat.v7
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-user-access-management-extn:sbi-uat.v19
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-user-management-extn:sbi-uat.v19
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-notification-service:sbi-uat.v45
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-program-configuration-extn::sbi-uat.v61 
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-scheduler-api-extn:sbi-uat.v53 
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-card-extn.v273:sbi-uat.v275
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-batch-scheduler-extn:sbi-uat.v27
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-card-management-extn:sbi-uat.v85
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-ui-app:sbi-uat.v98
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-go-connect:sbi-uat.v22
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-java-connect:sbi-uat.v11
+blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-go-exchange-rate-mapper:sbi-uat.v21
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-curl --location 'https://devcms.np.fssblaze.com/sbi/javaconnect/connectiondetails/save' \
---header 'Content-Type: application/json' \
---data '{
-   "tenantCode":"SBI",
-   "productCode":"CMS001",
-   "connectionName":"BASE24-CLASSIC-D2",
-   "networkCode":"SWT0005",
-   "host":"10.0.54.36",
-   "port":9004,
-   "connectionMode":"C",
-   "isLoginRequired":"Y",
-   "isAutoLoginRequired":"Y",
-   "isEchoRequired":"N",
-   "echoFreq":0,
-   "echoRetryAttempts":0,
-   "dmlBy":"Abdul"
-}'
-
- 
+GO_CONNECT_BASE_URL: "http://"
+  GO_CONNECT_JAVA_URL: "/java-connect-v2"
+  GO_CONNECT_SERVER_URL: "/go-connect-v2-server"
