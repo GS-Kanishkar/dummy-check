@@ -1,19 +1,15 @@
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-global-service:sbi-uat.v23
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-support-extn:sbi-uat.v38
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-audit-service:sbi-uat.v7
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-user-access-management-extn:sbi-uat.v19
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-user-management-extn:sbi-uat.v19
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-notification-service:sbi-uat.v45
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-program-configuration-extn::sbi-uat.v61 
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-scheduler-api-extn:sbi-uat.v53 
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-card-extn.v273:sbi-uat.v275
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-batch-scheduler-extn:sbi-uat.v27
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-card-management-extn:sbi-uat.v85
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-issuance-ui-app:sbi-uat.v98
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-go-connect:sbi-uat.v22
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-java-connect:sbi-uat.v11
-blazequay.np.fssblaze.com/quay/sbi-images/sbi-cms-platform-go-exchange-rate-mapper:sbi-uat.v21
-
-GO_CONNECT_BASE_URL: "http://"
-  GO_CONNECT_JAVA_URL: "/java-connect-v2"
-  GO_CONNECT_SERVER_URL: "/go-connect-v2-server"
+blazequay.np.fssblaze.com/quay/nats/nats:0.15.0
+blazequay.np.fssblaze.com/quay/nats/nats-account-server:1.0.0
+blazequay.np.fssblaze.com/quay/nats/nats-kafka:1.4.2
+blazequay.np.fssblaze.com/quay/nats/nats-operator:0.8.3
+blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:0.6.2
+blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.2.2-v1alpha2
+blazequay.np.fssblaze.com/quay/nats/nats:2.10.17-alpine
+blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.14.3
+blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:0.15.0
+blazequay.np.fssblaze.com/quay/nats/nats-box:0.14.3
+blazequay.np.fssblaze.com/quay/nats/nats-streaming:0.23.2
+blazequay.np.fssblaze.com/quay/nats/prometheus-nats-exporter:latest
+blazequay.np.fssblaze.com/quay/nats/nats-boot-config:0.5.4
+blazequay.np.fssblaze.com/quay/nats/nats-server-config-reloader:0.6.2
+blazequay.np.fssblaze.com/quay/nats/nats-surveyor:0.5.4
