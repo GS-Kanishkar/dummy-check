@@ -1,48 +1,31 @@
-UPDATE cms_card.customer set mobile_number1='+919922860405', email='shraddhas@fsstech.com'
-
-where customer_id in (112111,112112,112113,112114,112115,112116,112117,112118,112119,112120);
-
-commit;
+Gaurang Raut need to create a function in oracle db meghdoot
  
+create or replace FUNCTION    cms_card.increment_pan_serial (
+    p_code IN VARCHAR2
+) RETURN NUMBER
+IS
+    current_value NUMBER;
+    PRAGMA AUTONOMOUS_TRANSACTION; 
+BEGIN
+    -- Lock the row for update to prevent concurrent modifications
+    SELECT current_serail_no
+      INTO current_value
+      FROM cms_card.pan_control
+     WHERE program_master_code = p_code and approved_tc = 'A'
+       FOR UPDATE;
  
- mkdir onboardfile (at the root level)
-mkdir npfile (at the root level)
-cd npfile
-mkdir npInstantPPKCard
-mkdir npCardBatchRequest
+    -- Increment and update in the same transaction
+    UPDATE cms_card.pan_control
+       SET current_serail_no = current_serail_no + 1
+     WHERE program_master_code = p_code and approved_tc = 'A';
  
-cd ..
- 
-mkdir test-bucket (at the root level)
-cd test-bucket
-mkdir CARD_MANAGEMENT
-mkdir adminCardFiles
-mkdir adminCardRequestFiles
-mkdir adminCardTextFile
-mkdir certificates
-mkdir customerImageDrive
-mkdir embossVendorInvoiceFiles
-mkdir fileCertificates
-mkdir file_encryption
-mkdir npCardActivation
-mkdir npCardBatchRequest
-mkdir npInstantPPKCard
-mkdir 22-09-2025
-cd ..
+    -- Return new value
+    COMMIT;
+    RETURN current_value + 1;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        ROLLBACK;
+        RAISE_APPLICATION_ERROR(-20002, 'No pan_control entry found for code: ' || p_code);
+END increment_pan_serial;
 
-
-
-
-DATASOURCE_HOST: "uatrac-scan.dcmsnonprod.bank.sbi"
-  DATASOURCE_PORT: "6521"
-  DATASOURCE_DB: "DCMSDB"
-  DATASOURCE_SCHEMA_PREFIX: ""
-  DATASOURCE_SCHEMA: "GO_CONNECT"
-  DB_SSL_MODE: "disable"
-  DATASOURCE_DRIVER: "oracle.jdbc.driver.OracleDriver"
-  DATASOURCE_URL: "jdbc:oracle:thin:@uatrac-scan.dcmsnonprod.bank.sbi:6521/DCMSDB"
-  DATASOURCE_USERNAME: "GO_CONNECT"
-  DATASOURCE_PASSWORD: "zK402UAb"
-  DATASOURCE_DIALECT: "org.hibernate.dialect.OracleDialect"
-  DATASOURCE_DBTYPE: "oracle"
   
