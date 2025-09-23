@@ -22,10 +22,5 @@ BEGIN
     -- Return new value
     COMMIT;
     RETURN current_value + 1;
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        ROLLBACK;
-        RAISE_APPLICATION_ERROR(-20002, 'No pan_control entry found for code: ' || p_code);
-END increment_pan_serial;
 
   
