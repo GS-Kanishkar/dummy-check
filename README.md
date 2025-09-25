@@ -1,1 +1,7 @@
-select cms_card.aes_gcm_decrypt(v_card_number,'LrMec9E+MaYjPJ9WjmLLHjFBVGkR+5BFsXb/ro9ZAf8=') from dual;
+oc patch daemonset ztunnel -n ztunnel \
+  --type='json' \
+  -p='[{"op":"replace","path":"/spec/template/spec/containers/0/image","value":"image-registry.openshift-image-registry.svc:5000/sbi/ztunnel:1.24.6-distroless"}]'
+
+
+oc rollout status daemonset/ztunnel -n ztunnel
+oc get pods -n ztunnel -w
