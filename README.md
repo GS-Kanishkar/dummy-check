@@ -1,7 +1,23 @@
-oc patch daemonset ztunnel -n ztunnel \
-  --type='json' \
-  -p='[{"op":"replace","path":"/spec/template/spec/containers/0/image","value":"image-registry.openshift-image-registry.svc:5000/sbi/ztunnel:1.24.6-distroless"}]'
-
-
-oc rollout status daemonset/ztunnel -n ztunnel
-oc get pods -n ztunnel -w
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: allow-impersonation
+  namespace: sbi
+rules:
+- apiGroups: [""]
+  resources: ["serviceaccounts"]
+  verbs: ["impersonate"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ztunnel-impersonation
+  namespace: sbi
+subjects:
+- kind: ServiceAccount
+  name: ztunnel
+  namespace: ztunnel
+roleRef:
+  kind: Role
+  name: allow-impersonation
+  apiGroup: rbac.authorization.k8s.io
