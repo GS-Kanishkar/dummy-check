@@ -1,0 +1,40 @@
+################################################################################
+# NATS Stateful Set and associated resources
+################################################################################
+
+############################################################
+# NATS config
+############################################################
+config:
+  cluster:
+    enabled: true
+    port: 6222
+    # must be 2 or higher when jetstream is enabled
+    replicas: 3
+
+  nats:
+    port: 4222
+
+############################################################
+# stateful set -> pod template -> nats container
+############################################################
+container:
+  image:
+    repository: 736483234466.dkr.ecr.ap-south-1.amazonaws.com/nats
+    tag: 2.12.1-alpine
+
+############################################################
+# natsBox
+#
+# NATS Box Deployment and associated resources
+############################################################
+natsBox:
+  enabled: true
+
+  ############################################################
+  # deployment -> pod template -> nats-box container
+  ############################################################
+  container:
+    image:
+      repository: 736483234466.dkr.ecr.ap-south-1.amazonaws.com/nats-box
+      tag: 0.19.2
