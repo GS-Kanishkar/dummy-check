@@ -1,0 +1,9 @@
+alter table cms_card.np_card_batch_request modify ( cbs_program_code null);
+alter table cms_card.np_card_batch_request modify ( home_br_circle_code null);
+alter table cms_card.np_card_batch_request modify ( issue_br_circle_code null);
+alter table cms_card.np_card_batch_request modify ( issue_branch_cd2 null);
+alter table cms_card.np_card_batch_request modify ( lcpc_br_code null);
+alter table cms_card.np_card_batch_request modify ( prim_acc_typ null);
+alter table cms_card.np_card_batch_request modify ( prim_accno null);
+alter table cms_card.np_card_batch_request modify ( program_code null);
+alter table cms_card.np_card_batch_request modify ( request_reference_number null);
